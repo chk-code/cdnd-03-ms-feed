@@ -21,13 +21,13 @@ import {V0_FEED_MODELS, V0_USER_MODELS} from './controllers/v0/model.index';
     {name:"URL" , message:"Local URL"},
     {name:"JWT_SECRET" , message:"Secret for JWT"},
     ]
- 
+
   for(var env of REQUIRED_ENVIRONMENT_SETTINGS) {
     if (!process.env[env.name]) {
-      console.error(`Environment variable ${env.name} should be set: ${env.message}`);  
+      console.error(`Environment variable ${env.name} should be set: ${env.message}`);
     } else {
       // convenient for debug; however: this line exposes all environment variable values - including any secret values they may contain
-      console.log(`Environment variable ${env.name} is set to : ${process.env[env.name]}`);  
+      console.log(`Environment variable ${env.name} is set to : ${process.env[env.name]}`);
     }
   }
 
@@ -47,7 +47,7 @@ import {V0_FEED_MODELS, V0_USER_MODELS} from './controllers/v0/model.index';
       'X-Access-Token', 'Authorization',
     ],
     methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
-    origin: config.url,
+    origin: "*",
   }));
 
   app.use('/api/v0/', IndexRouter);

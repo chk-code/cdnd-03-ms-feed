@@ -52,7 +52,7 @@ const model_index_1 = require("./controllers/v0/model.index");
             'X-Access-Token', 'Authorization',
         ],
         methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
-        origin: config_1.config.url,
+        origin: "*",
     }));
     app.use('/api/v0/', index_router_1.IndexRouter);
     // Root URI call
